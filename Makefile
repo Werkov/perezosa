@@ -3,7 +3,7 @@ SOURCE_wiki=../wiki.spa.txt
 
 all: vocabulary ngrams
 vocabulary: $(DATASET).vocab 
-ngrams: $(DATASET).bigram
+ngrams: $(DATASET).bigram $(DATASET).trigram $(DATASET).quadgram
 
 .PHONY: vocabulary ngrams
 .DELETE_ON_ERROR:
@@ -24,3 +24,15 @@ $(DATASET).bigram: $(DATASET).bigram.bin
 
 $(DATASET).bigram.bin: $(DATASET).tokens.bin
 	./train-ngram.py $< >$@
+
+$(DATASET).trigram: $(DATASET).trigram.bin
+	./list-ngram.py $< >$@
+
+$(DATASET).trigram.bin: $(DATASET).tokens.bin
+	./train-ngram.py 3 $< >$@
+
+$(DATASET).quadgram: $(DATASET).quadgram.bin
+	./list-ngram.py $< >$@
+
+$(DATASET).quadgram.bin: $(DATASET).tokens.bin
+	./train-ngram.py 4 $< >$@

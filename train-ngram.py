@@ -9,8 +9,8 @@ n = 2
 
 if len(sys.argv) > 1:
     if sys.argv[1].isdigit():
-        n = int(argv[1])
-        del argv[1]
+        n = int(sys.argv[1])
+        del sys.argv[1]
 
 if len(sys.argv) < 2:
     raise ValueError('Expected pickle filename arg')
