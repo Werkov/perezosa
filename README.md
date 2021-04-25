@@ -5,7 +5,8 @@ The lazy way how to learn a language.
 - Assumption 1: Learn only what is really used (useful).
 - Assumption 2: Vocabulary isn't sufficient, learn grammar from ngrams.
 
-This builds upon [NLTK](https://www.nltk.org/).
+This builds upon [NLTK](https://www.nltk.org/) and [W2C by Martin
+Majliš](https://ufal.mff.cuni.cz/w2c)..
 
 ## Results
 
