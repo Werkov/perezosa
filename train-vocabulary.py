@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 
-import nltk
 import pickle
 import sys
 from collections import Counter
 
-if len(sys.argv) > 1:
-    if argv[1] != 'cess_esp':
-        raise ValueError('Unknown corpus {}'.format(argv[1]))
-    tokens = nltk.corpus.cess_esp.words()
-else:
-    tokens = nltk.tokenize.word_tokenize(sys.stdin.read(), language='spanish')
+if len(sys.argv) < 2:
+    raise ValueError('Expected pickle filename arg')
+
+f = open(sys.argv[1], 'rb')
+tokens = pickle.load(f)
 
 counter = Counter(tokens)
 
